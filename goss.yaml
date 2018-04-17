@@ -1,12 +1,12 @@
 port:
-  tcp:8332:
+  tcp:9332:
     listening: true
     ip:
     - 0.0.0.0
-  tcp:8333:
+  tcp:9333:
     listening: true
     ip:
     - 0.0.0.0
 process:
-  bitcoind:
+  litecoind:
     running: true

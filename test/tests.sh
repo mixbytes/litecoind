@@ -4,8 +4,8 @@ RPCTESTUSER="user"
 RPCTESTPASS="pass"
 
 set -ex
-sudo docker build -t bitcoind:testing .
-sudo GOSS_SLEEP=10 dgoss run -p 8332:8332 -p 8333:8333 -e RPCALLOWIP="0.0.0.0/0" -e RPCUSER="$RPCTESTUSER" -e RPCPASS="$RPCTESTPASS" bitcoind:testing
+sudo docker build -t litecoind:testing .
+sudo GOSS_SLEEP=10 dgoss run -p 9332:9332 -p 9333:9333 -e RPCALLOWIP="0.0.0.0/0" -e RPCUSER="$RPCTESTUSER" -e RPCPASS="$RPCTESTPASS" litecoind:testing
 
 sed -i "s/RPCUSER:.*/RPCUSER: \"$RPCTESTUSER\"/" docker-compose.yml
 sed -i "s/RPCPASS:.*/RPCPASS: \"$RPCTESTPASS\"/" docker-compose.yml

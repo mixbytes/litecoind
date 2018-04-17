@@ -1,21 +1,21 @@
 version: '2'
 services:
-  bitcoind:
+  litecoind:
     restart: always
     build:
       context: .
       args:
-        BITCOIN_VER: "0.15.1"
+        LITECOIN_VER: "0.15.1"
     ports:
-      - "8332:8332"                            # rpc server port
-      - "8333:8333"
-      - "18332:18332"                          # testnet
-      - "18333:18333"
+      - "8332:9332"                            # rpc server port
+      - "8333:9333"
+      - "19332:19332"                          # testnet
+      - "19333:19333"
     environment:
-      RPCUSER: "user"                          # rpc user name
-      RPCPASS: "pass"                          # rpc user password
-      RPCALLOWIP: "127.0.0.1/8"                # ip network allowed to use rpc
+      RPCUSER: "user"
+      RPCPASS: "pass"
+      RPCALLOWIP: "0.0.0.0/0"
     #command: -onlynet=ipv4 -testnet
     volumes:
-      - "~/.bitcoin:/data"                     # bitcoin node data directory
+      - "~/.litecoin:/data"                     # bitcoin node data directory
 

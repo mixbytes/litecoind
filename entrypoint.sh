@@ -1,7 +1,7 @@
 #!/bin/sh
 
 /bin/chmod 700 /data
-/bin/chown -R bitcoin /data
+/bin/chown -R litecoin /data
 
 PARAMS="-printtoconsole \
 	-datadir=/data \
@@ -11,6 +11,6 @@ PARAMS="-printtoconsole \
 	-rpcpassword=$RPCPASS \
 	-rpcallowip=$RPCALLOWIP \
 	$@"
-echo "exec command: bitcoind $PARAMS"
+echo "exec command: litecoind $PARAMS"
 
-exec sudo -H -u bitcoin /usr/local/bin/bitcoind $PARAMS
+exec sudo -H -u litecoin /usr/local/bin/litecoind $PARAMS
