@@ -51,6 +51,6 @@ RUN yum install -y boost-chrono boost-thread boost-program-options boost-system 
 COPY --from=build /build/ /usr/local/
 VOLUME [ "/data" ]docker build -t litecoind:testing .
 EXPOSE 9332 9333 19332 19333
-RUN adduser litecoin -d /data -c 'litecoin node' -r
+RUN adduser litecoin -d /data -u 1001 -c 'litecoin node' -r
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 ENTRYPOINT [ "/bin/sh", "/usr/local/bin/entrypoint.sh" ]
