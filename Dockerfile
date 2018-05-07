@@ -18,9 +18,9 @@ RUN cd /tmp/src/db-4.8.30.NC/build_unix \
 RUN yum install -y which
 RUN gpg --keyserver pool.sks-keyservers.net --recv-key FE3348877809386C
 RUN gpg --fingerprint FE3348877809386C | grep "59CA F0E9 6F23 F537 4794  5FD4 FE33 4887 7809 386C"
-RUN wget https://download.litecoin.org/litecoin-0.15.1/src/litecoin-${LITECOIN_VER}.tar.gz \
+RUN wget https://download.litecoin.org/litecoin-${LITECOIN_VER}/src/litecoin-${LITECOIN_VER}.tar.gz \
     -O /tmp/litecoin-${LITECOIN_VER}.tar.gz
-RUN wget https://download.litecoin.org/litecoin-0.15.1/SHA256SUMS.asc \
+RUN wget https://download.litecoin.org/litecoin-${LITECOIN_VER}/SHA256SUMS.asc \
     -O /tmp/litecoin-${LITECOIN_VER}.tar.gz.asc
 RUN gpg --verify /tmp/litecoin-${LITECOIN_VER}.tar.gz.asc
 RUN cd /tmp && grep "litecoin-${LITECOIN_VER}.tar.gz\$" /tmp/litecoin-${LITECOIN_VER}.tar.gz.asc | sha256sum -c - 
